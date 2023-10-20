@@ -53,20 +53,28 @@ clients.push(marco, paul, amy);
 e le diamo il valore dei prezzi (a nostra scelta) dall'array 'prices' per avere il totale che ogni utente spenderà in base agli elementi
 che aggiunge al suo carrello */
 
+
 clients[0].totalShoppingCart = prices[0];
 
 clients[1].totalShoppingCart = prices[0] + prices[1];
 
 clients[2].totalShoppingCart = prices[1] + prices[2];
 
-
 console.log(clients);
 
 
+for(let i = 0; i < clients.length; i ++){
+  let person = clients[i]
+    if(person.isAmbassador === true){
+      console.log(clients[i].totalShoppingCart = clients[i].totalShoppingCart - (clients[i].totalShoppingCart * 0.7));
+    }
+    else{
+      console.log(" Non ha diritto allo sconto Ambassador")
+    }
+}
 
 
-
-for (let i = 0; i < clients.length; i++) {
+/*for (let i = 0; i < clients.length; i++) {
   //la i sta per indice, ovvero gli elementi dell'array
   let person = clients[i]; //dichiariamo una variabile e le attribuiamo l'oggetto corrente
   if (person.isAmbassador === false) {
@@ -76,10 +84,12 @@ for (let i = 0; i < clients.length; i++) {
     console.log(person.name + " " + person.lastName + " E' un ambassador");
   }
   console.log(); // non è necessario ma lascia una riga tra una stampa e l'altra
-}
+}*/
 
 let ambassadorClients = [];
 
 ambassadorClients.push(clients[0]);
 
 console.log(ambassadorClients, " Solo Marco Rossi è cliente Ambassador");
+
+
