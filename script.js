@@ -53,43 +53,63 @@ clients.push(marco, paul, amy);
 e le diamo il valore dei prezzi (a nostra scelta) dall'array 'prices' per avere il totale che ogni utente spenderà in base agli elementi
 che aggiunge al suo carrello */
 
-
 clients[0].totalShoppingCart = prices[0];
 
 clients[1].totalShoppingCart = prices[0] + prices[1];
 
 clients[2].totalShoppingCart = prices[1] + prices[2];
 
-let freeShipping = 100;
+console.log(); //nessuna utilità, inserito solo per avere più ordine dentro il terminale
 
-for(let i = 0; i < clients.length; i ++){
-  let person = clients[i]
-    if(person.isAmbassador){
-      console.log("\n",person.name,person.lastName,"ha diritto allo sconto del 30% e pagherà " + (person.totalShoppingCart = person.totalShoppingCart - person.totalShoppingCart * 0.3) + " euro.\n");
-    }
-    else{
-      console.log(person.name + " " + person.lastName + " non ha diritto allo sconto. Il tuo totale è di euro", person.totalShoppingCart,"\n");
-    }
-    if(person.totalShoppingCart <= 100){
-     console.log("costi di spedizione:",shippingCost,"Ancora euro", freeShipping - person.totalShoppingCart,"per la spedizione gratuita.\n")
-    }
-    else{
-      console.log(person.name, person.lastName,"ha raggiunto la cifra necessaria per usufruire della spedizione gratuita!")
-    }
+let freeShipping = 100; /*dichiariamo una variabile con valore 100, ovvero la cifra da dover superare per ottenere la spedizione gratuita,
+e la utilizziamo dentro il ciclo per ottenere la cifra restante, tramite sottrazione, per poterla raggiungere*/
+
+for (let i = 0; i < clients.length; i++) {
+  let person = clients[i]; //dichiariamo la variabile person per comodità per raggiungere facilmente le proprietà dentro gli oggetti dentro l'array
+  if (person.isAmbassador) {
+    //applichiamo lo sconto data la booleana 'isAmbassador = true' dentro ogni oggetto
+    console.log(
+      person.name,
+      person.lastName,
+      "ha diritto allo sconto del 30% e pagherà " +
+        (person.totalShoppingCart =
+          person.totalShoppingCart - person.totalShoppingCart * 0.3) +
+        " euro.\n"
+    );
+  } else {
+    console.log(
+      person.name +
+        " " +
+        person.lastName +
+        " non ha diritto allo sconto. Il totale è di euro",
+      person.totalShoppingCart,
+      "\n"
+    );
+  }
+  if (person.totalShoppingCart <= 100) {
+    console.log(
+      "costi di spedizione:",
+      shippingCost,
+      "Ancora euro",
+      freeShipping - person.totalShoppingCart,
+      "per la spedizione gratuita.\n"
+    );
+  } else {
+    console.log(
+      person.name,
+      person.lastName,
+      "ha raggiunto la cifra necessaria per usufruire della spedizione gratuita!"
+    );
+  }
 }
-
 
 let ambassadorClients = [];
 
-for(let i = 0; i < clients.length; i++){
-  let person = clients[i]
-  if(clients[i].isAmbassador){
-    ambassadorClients.push(clients[i])
-    console.log(person.name,person.lastName,"è un cliente ambassador.\n")
+//pushamo l'oggetto che ha la proprietà 'isAmbassador = true' dentro l'array vuoto appena creato
+for (let i = 0; i < clients.length; i++) {
+  let person = clients[i];
+  if (clients[i].isAmbassador) {
+    ambassadorClients.push(clients[i]);
+    console.log(person.name, person.lastName, "è un cliente ambassador.\n");
   }
 }
- console.log(ambassadorClients);
-
-
-
-
