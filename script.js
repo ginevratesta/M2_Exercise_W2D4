@@ -42,38 +42,25 @@ const prices = [34, 5, 2];
 const shippingCost = 50;
 let utenteCheEffettuaLAcquisto = amy; //cambia il valore qui per provare se il tuo algoritmo funziona!
 
-                                              //INIZIO ESERCIZIO PER IL WEEKEND
+//INIZIO ESERCIZIO PER IL WEEKEND
 
 /*Inseriamo tutti gli oggetti dentro l'array vuoto 'clients' usando il metodo .push*/
 
 let clients = [];
 clients.push(marco, paul, amy);
 
-/*Creiamo una nuova proprietà 'totalCost', che aggiungeremo ad ogni singolo oggetto tramite l'indice dell'array che li contiene,
+/*Creiamo una nuova proprietà 'totalShoopingCart', che aggiungeremo ad ogni singolo oggetto tramite l'indice dell'array che li contiene,
 e le diamo il valore dei prezzi (a nostra scelta) dall'array 'prices' per avere il totale che ogni utente spenderà in base agli elementi
 che aggiunge al suo carrello */
 
-clients[0].totalCost = prices[0];
+clients[0].totalShoppingCart = prices[0];
 
-clients[1].totalCost = prices[0] + prices[1];
+clients[1].totalShoppingCart = prices[0] + prices[1];
 
-clients[2].totalCost = prices[1] + prices[2];
-
-
+clients[2].totalShoppingCart = prices[1] + prices[2];
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(clients);
 
 
 
@@ -85,15 +72,14 @@ for (let i = 0; i < clients.length; i++) {
   if (person.isAmbassador === false) {
     //in questo modo chiamiamo isAmbassador di ogni oggetto e lo verifichiamo
     console.log(person.name + " " + person.lastName + " Non è un ambassador"); //chiamiamo nome e cognome di ogni oggetto verificato
-  }
-  else{
+  } else {
     console.log(person.name + " " + person.lastName + " E' un ambassador");
   }
   console.log(); // non è necessario ma lascia una riga tra una stampa e l'altra
 }
 
-let ambassadorClients = []
+let ambassadorClients = [];
 
-ambassadorClients.push(clients[0])
+ambassadorClients.push(clients[0]);
 
-console.log(ambassadorClients, " Solo Marco Rossi è cliente Ambassador")
+console.log(ambassadorClients, " Solo Marco Rossi è cliente Ambassador");
