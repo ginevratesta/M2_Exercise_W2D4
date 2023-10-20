@@ -65,19 +65,24 @@ let freeShipping = 100;
 for(let i = 0; i < clients.length; i ++){
   let person = clients[i]
     if(person.isAmbassador && person.totalShoppingCart <= 100 === true){
-      console.log(person.name, person.lastName, "ha diritto allo sconto del 30% e pagherà " + (clients[i].totalShoppingCart = clients[i].totalShoppingCart - clients[i].totalShoppingCart * 0.3) + " euro, più costi di spedizione:",shippingCost,"Ancora euro", freeShipping - clients[i].totalShoppingCart,"per la spedizione gratuita.\n");
+      console.log("\n",person.name, person.lastName, "ha diritto allo sconto del 30% e pagherà " + (person.totalShoppingCart = person.totalShoppingCart - person.totalShoppingCart * 0.3) + " euro, più costi di spedizione:",shippingCost,"Ancora euro", freeShipping - person.totalShoppingCart,"per la spedizione gratuita.\n");
     }
     else{
-      console.log(person.name + " " + person.lastName + " non ha diritto allo sconto. Il tuo totale è di euro", clients[i].totalShoppingCart,"più costi di spedizione:",shippingCost,"Ancora euro", freeShipping - clients[i].totalShoppingCart,"per la spedizione gratuita.\n");
+      console.log(person.name + " " + person.lastName + " non ha diritto allo sconto. Il tuo totale è di euro", person.totalShoppingCart,"più costi di spedizione:",shippingCost,"Ancora euro", freeShipping - person.totalShoppingCart,"per la spedizione gratuita.\n");
     }
 }
 
 
 let ambassadorClients = [];
 
-ambassadorClients.push(clients[0]);
+for(let i = 0; i < clients.length; i++){
+  let person = clients[i]
+  if(clients[i].isAmbassador){
+    console.log(ambassadorClients.push(clients[i]),person.name,person.lastName,"è un cliente ambassador.\n")
+  }
+}
+ //console.log(ambassadorClients);
 
-console.log(ambassadorClients[0].name + " " + ambassadorClients[0].lastName, " è cliente Ambassador.");
 
 
 
