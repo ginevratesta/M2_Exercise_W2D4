@@ -60,37 +60,24 @@ clients[1].totalShoppingCart = prices[0] + prices[1];
 
 clients[2].totalShoppingCart = prices[1] + prices[2];
 
-
+let freeShipping = 100;
 
 for(let i = 0; i < clients.length; i ++){
   let person = clients[i]
-    if(person.isAmbassador === true){
-      clients[i].totalShoppingCart = clients[i].totalShoppingCart - (clients[i].totalShoppingCart * 0.7) +
-      console.log(person.name + " " + person.lastName + " ha diritto allo sconto Ambassador\n")
+    if(person.isAmbassador && person.totalShoppingCart <= 100 === true){
+      console.log(person.name, person.lastName, "ha diritto allo sconto del 30% e pagherà " + (clients[i].totalShoppingCart = clients[i].totalShoppingCart - clients[i].totalShoppingCart * 0.3) + " euro, più costi di spedizione:",shippingCost,"Ancora euro", freeShipping - clients[i].totalShoppingCart,"per la spedizione gratuita.\n");
     }
     else{
-      console.log(person.name + " " + person.lastName + " non ha diritto allo sconto Ambassador\n")
+      console.log(person.name + " " + person.lastName + " non ha diritto allo sconto. Il tuo totale è di euro", clients[i].totalShoppingCart,"più costi di spedizione:",shippingCost,"Ancora euro", freeShipping - clients[i].totalShoppingCart,"per la spedizione gratuita.\n");
     }
 }
 
-
-/*for (let i = 0; i < clients.length; i++) {
-  //la i sta per indice, ovvero gli elementi dell'array
-  let person = clients[i]; //dichiariamo una variabile e le attribuiamo l'oggetto corrente
-  if (person.isAmbassador === false) {
-    //in questo modo chiamiamo isAmbassador di ogni oggetto e lo verifichiamo
-    console.log(person.name + " " + person.lastName + " Non è un ambassador"); //chiamiamo nome e cognome di ogni oggetto verificato
-  } else {
-    console.log(person.name + " " + person.lastName + " E' un ambassador");
-  }
-  console.log(); // non è necessario ma lascia una riga tra una stampa e l'altra
-}
 
 let ambassadorClients = [];
 
 ambassadorClients.push(clients[0]);
 
-console.log(ambassadorClients, " Solo Marco Rossi è cliente Ambassador");
-*/
+console.log(ambassadorClients[0].name + " " + ambassadorClients[0].lastName, " è cliente Ambassador.");
+
 
 
