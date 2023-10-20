@@ -60,16 +60,16 @@ clients[1].totalShoppingCart = prices[0] + prices[1];
 
 clients[2].totalShoppingCart = prices[1] + prices[2];
 
-console.log(clients);
 
 
 for(let i = 0; i < clients.length; i ++){
   let person = clients[i]
     if(person.isAmbassador === true){
-      console.log(clients[i].totalShoppingCart = clients[i].totalShoppingCart - (clients[i].totalShoppingCart * 0.7));
+      clients[i].totalShoppingCart = clients[i].totalShoppingCart - (clients[i].totalShoppingCart * 0.7) +
+      console.log(person.name + " " + person.lastName + " ha diritto allo sconto Ambassador\n")
     }
     else{
-      console.log(" Non ha diritto allo sconto Ambassador")
+      console.log(person.name + " " + person.lastName + " non ha diritto allo sconto Ambassador\n")
     }
 }
 
@@ -84,12 +84,13 @@ for(let i = 0; i < clients.length; i ++){
     console.log(person.name + " " + person.lastName + " E' un ambassador");
   }
   console.log(); // non è necessario ma lascia una riga tra una stampa e l'altra
-}*/
+}
 
 let ambassadorClients = [];
 
 ambassadorClients.push(clients[0]);
 
 console.log(ambassadorClients, " Solo Marco Rossi è cliente Ambassador");
+*/
 
 
