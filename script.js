@@ -66,39 +66,24 @@ e la utilizziamo dentro il ciclo per ottenere la cifra restante, tramite sottraz
 
 for (let i = 0; i < clients.length; i++) {
   let person = clients[i]; //dichiariamo la variabile person per comodità per raggiungere facilmente le proprietà dentro gli oggetti dentro l'array
-  if (person.isAmbassador) {
-    //applichiamo lo sconto data la booleana 'isAmbassador = true' dentro ogni oggetto
-    console.log(
-      person.name,
-      person.lastName,
-      "è un cliente Ambassador e ha diritto allo sconto del 30%, pagherà ",
-        (person.totalShoppingCart =
-          person.totalShoppingCart - person.totalShoppingCart * 0.3),
-        "euro.\n"
-    );
-  } else {
-    console.log(
-      person.name,
-        "",
-        person.lastName,
-        "non è un cliente Ambassador e non ha diritto allo sconto. Il totale è di euro",
-      person.totalShoppingCart,
-      "\n"
-    );
-  }
+  
   if (person.totalShoppingCart <= 100) {
     console.log(
-      "Più euro di costi di spedizione:",
-      shippingCost,
-      "Ancora euro",
-      freeShipping - person.totalShoppingCart,
-      "per la spedizione gratuita.\n"
+    `Gentile Sig./Sig.ra ${person.name} ${person.lastName}, ancora ${freeShipping - person.totalShoppingCart} euro per usufruire della spedizione gratuita. Più costi aggiuntivi di spedizione: ${shippingCost} euro.\n`
     );
   } else {
     console.log(
-      person.name,
-      person.lastName,
-      "ha raggiunto la cifra necessaria per usufruire della spedizione gratuita!"
+      `Gentile Sig./Sig.ra ${person.name} ${person.lastName}, ha raggiunto la cifra necessaria per usufruire della spedizione gratuita.\n`
+    );
+  }
+  if (person.isAmbassador) {
+    //applichiamo lo sconto data la booleana 'isAmbassador = true' e calcoliamo il totale del carrello in uscita
+    console.log(
+      `Gentile Sig./Sig.ra ${person.name} ${person.lastName} essendo un cliente Ambassador ha diritto allo sconto del 30%, il suo totale è di ${person.totalShoppingCart * 0.7} euro, più spese di spedizione ${shippingCost} euro. Totale: ${(person.totalShoppingCart * 0.7) + shippingCost} euro.\n`
+    );
+  } else {
+    console.log(
+      `Gentile Sig./Sig.ra ${person.name} ${person.lastName} non essendo cliente Ambassador non ha diritto allo sconto.\nIl suo totale è di ${person.totalShoppingCart} euro, più spese di spedizione ${shippingCost} euro. Totale: ${person.totalShoppingCart + shippingCost} euro.\n`
     );
   }
 }
