@@ -65,32 +65,54 @@ let freeShipping = 100; /*dichiariamo una variabile con valore 100, ovvero la ci
 e la utilizziamo dentro il ciclo per ottenere la cifra restante, tramite sottrazione, per poterla raggiungere*/
 
 for (let i = 0; i < clients.length; i++) {
+  //per semplificare potremmo anche scrivere "for(let person of clients){}".
+
   let person = clients[i]; //dichiariamo la variabile person per comodità per raggiungere facilmente le proprietà dentro gli oggetti dentro l'array
-  //se è amb.. e spende +100
-  //se non è amb.. e spende +100
-  //se è amb.. e non spende +100
-  //se non è amb.. e non spende +100
-  if(person.isAmbassador && person.totalShoppingCart > freeShipping){
-    console.log(`${person.name} ${person.lastName} 
-    è un cliente ambassador e ha diritto allo sconto, avendo inoltre superato il prezzo minimo di ${freeShipping} 
+
+  //se è ambassador e spende +100
+  //se è ambassador e non spende +100
+  //se non è ambassador e spende +100
+  //se non è ambassador e non spende +100
+
+  if (person.isAmbassador && person.totalShoppingCart > freeShipping) {
+    console.log(`${person.name} ${person.lastName}: 
+    è un cliente Ambassador e ha diritto allo sconto, avendo inoltre superato il prezzo minimo di ${freeShipping} 
     euro non dovrà pagare i costi di spedizione di ${shippingCost} euro.
-    Il totale provvisorio è di ${person.totalShoppingCart} euro, ed applicando lo sconto del 30% è di 
-    ${person.totalShoppingCart * 0.7}`);
-
+    Il totale provvisorio è di ${
+      person.totalShoppingCart
+    } euro, ed applicando lo sconto del 30% è di 
+    ${person.totalShoppingCart * 0.7}\n`);
   }
-if(person.isAmbassador && person.totalShoppingCart <= freeShipping){
 
+  if (person.isAmbassador && person.totalShoppingCart <= freeShipping) {
+    console.log(`${person.name} ${person.lastName}: 
+  è un cliente Ambassador e ha diritto allo sconto, ma il totale nel carrello non supera il prezzo minimo di ${freeShipping} 
+  euro per poter usufruire della spedizione gratuita. Il totale provvisorio è di ${
+    person.totalShoppingCart
+  } euro, 
+  applicando lo sconto è di ${
+    person.totalShoppingCart * 0.7
+  } e aggiungendo i costi di spedizione che ammontano a 
+  ${shippingCost} euro, il totale è di ${
+      person.totalShoppingCart * 0.7 + shippingCost
+    } euro.\n`);
+  }
+
+  if (!person.isAmbassador && person.totalShoppingCart > freeShipping) {
+    console.log(`${person.name} ${person.lastName}: 
+  non è un cliente Ambassador, ma il totale nel carrello supera il prezzo minimo di ${freeShipping} 
+  euro e non dovrà pagare i costi di spedizione di ${shippingCost} euro. Il totale da pagare è di ${person.totalShoppingCart} euro\n`);
+  }
+
+  if (!person.isAmbassador && person.totalShoppingCart <= freeShipping) {
+    console.log(`${person.name} ${person.lastName}: 
+  non è un cliente Ambassador e il totale nel carrello non supera il prezzo minimo di ${freeShipping} 
+  euro per poter usufruire della spedizione gratuita. Il totale provvisorio è di ${person.totalShoppingCart} euro 
+  e aggiunngendo i costi di spedizione che ammontano a ${shippingCost} euro, il totale è di ${
+      person.totalShoppingCart + shippingCost
+    } euro.\n`);
+  }
 }
-
-if(!person.isAmbassador && person.totalShoppingCart > freeShipping)
-
-if(!person.isAmbassador && person.totalShoppingCart <= freeShipping)
-
-
-
-
-
-  
 
 let ambassadorClients = [];
 
@@ -101,4 +123,4 @@ for (let i = 0; i < clients.length; i++) {
     ambassadorClients.push(clients[i]);
   }
 }
- console.log(ambassadorClients);
+console.log(ambassadorClients);
