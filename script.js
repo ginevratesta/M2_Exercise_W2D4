@@ -67,12 +67,14 @@ e la utilizziamo dentro il ciclo per ottenere la cifra restante, tramite sottraz
 for (let i = 0; i < clients.length; i++) {
   //per semplificare potremmo anche scrivere "for(let person of clients){}".
 
-  let person = clients[i]; //dichiariamo la variabile person per comodità per raggiungere facilmente le proprietà dentro gli oggetti dentro l'array
+  let person = clients[i]; //dichiariamo la variabile person per comodità per raggiungere facilmente le proprietà dentro gli oggetti contenuti nell'array
 
-  //se è ambassador e spende +100
-  //se è ambassador e non spende +100
-  //se non è ambassador e spende +100
-  //se non è ambassador e non spende +100
+  //USANDO SOLO IF DEFINIAMO:
+
+  //se è Ambassador e spende più di 100 euro
+  //se è Ambassador e non spende più di 100
+  //se non è Ambassador e spende più di 100 euro
+  //se non è Ambassador e non spende più di 100 euro
 
   if (person.isAmbassador && person.totalShoppingCart > freeShipping) {
     console.log(`${person.name} ${person.lastName}: 
@@ -107,7 +109,9 @@ for (let i = 0; i < clients.length; i++) {
   if (!person.isAmbassador && person.totalShoppingCart <= freeShipping) {
     console.log(`${person.name} ${person.lastName}: 
   non è un cliente Ambassador e il totale nel carrello non supera il prezzo minimo di ${freeShipping} 
-  euro per poter usufruire della spedizione gratuita. Il totale provvisorio è di ${person.totalShoppingCart} euro 
+  euro per poter usufruire della spedizione gratuita. Il totale provvisorio è di ${
+    person.totalShoppingCart
+  } euro 
   e aggiunngendo i costi di spedizione che ammontano a ${shippingCost} euro, il totale è di ${
       person.totalShoppingCart + shippingCost
     } euro.\n`);
@@ -116,11 +120,14 @@ for (let i = 0; i < clients.length; i++) {
 
 let ambassadorClients = [];
 
-//pushamo l'oggetto che ha la proprietà 'isAmbassador = true' dentro l'array vuoto appena creato
+/* pushamo l'oggetto o gli oggetti che hanno la proprietà 'isAmbassador = true' dentro l'array vuoto appena creato
+usando un ciclo, scorrerà ogni elemento all'interno dell'array "clients" finché non troverà la proprietà 
+e poi con .push pushamo il/gli oggetto/i dentro il nuovo array vuoto creato precedentemente "ambassadorClients */
 for (let i = 0; i < clients.length; i++) {
   let person = clients[i];
   if (clients[i].isAmbassador) {
     ambassadorClients.push(clients[i]);
   }
 }
+
 console.log(ambassadorClients);
