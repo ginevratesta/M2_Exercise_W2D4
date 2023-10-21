@@ -129,5 +129,4 @@ for (let i = 0; i < clients.length; i++) {
     ambassadorClients.push(clients[i]);
   }
 }
-
 console.log(ambassadorClients);
