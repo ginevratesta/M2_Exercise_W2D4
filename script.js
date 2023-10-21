@@ -66,27 +66,31 @@ e la utilizziamo dentro il ciclo per ottenere la cifra restante, tramite sottraz
 
 for (let i = 0; i < clients.length; i++) {
   let person = clients[i]; //dichiariamo la variabile person per comodità per raggiungere facilmente le proprietà dentro gli oggetti dentro l'array
-  
-  if (person.totalShoppingCart <= 100) {
-    console.log(
-    `Gentile Sig./Sig.ra ${person.name} ${person.lastName}, ancora ${freeShipping - person.totalShoppingCart} euro per usufruire della spedizione gratuita. Più costi aggiuntivi di spedizione: ${shippingCost} euro.\n`
-    );
-  } else {
-    console.log(
-      `Gentile Sig./Sig.ra ${person.name} ${person.lastName}, ha raggiunto la cifra necessaria per usufruire della spedizione gratuita.\n`
-    );
+  //se è amb.. e spende +100
+  //se non è amb.. e spende +100
+  //se è amb.. e non spende +100
+  //se non è amb.. e non spende +100
+  if(person.isAmbassador && person.totalShoppingCart > freeShipping){
+    console.log(`${person.name} ${person.lastName} 
+    è un cliente ambassador e ha diritto allo sconto, avendo inoltre superato il prezzo minimo di ${freeShipping} 
+    euro non dovrà pagare i costi di spedizione di ${shippingCost} euro.
+    Il totale provvisorio è di ${person.totalShoppingCart} euro, ed applicando lo sconto del 30% è di 
+    ${person.totalShoppingCart * 0.7}`);
+
   }
-  if (person.isAmbassador) {
-    //applichiamo lo sconto data la booleana 'isAmbassador = true' e calcoliamo il totale del carrello in uscita
-    console.log(
-      `Gentile Sig./Sig.ra ${person.name} ${person.lastName} essendo un cliente Ambassador ha diritto allo sconto del 30%, il suo totale è di ${person.totalShoppingCart * 0.7} euro, più spese di spedizione ${shippingCost} euro. Totale: ${(person.totalShoppingCart * 0.7) + shippingCost} euro.\n`
-    );
-  } else {
-    console.log(
-      `Gentile Sig./Sig.ra ${person.name} ${person.lastName} non essendo cliente Ambassador non ha diritto allo sconto.\nIl suo totale è di ${person.totalShoppingCart} euro, più spese di spedizione ${shippingCost} euro. Totale: ${person.totalShoppingCart + shippingCost} euro.\n`
-    );
-  }
+if(person.isAmbassador && person.totalShoppingCart <= freeShipping){
+
 }
+
+if(!person.isAmbassador && person.totalShoppingCart > freeShipping)
+
+if(!person.isAmbassador && person.totalShoppingCart <= freeShipping)
+
+
+
+
+
+  
 
 let ambassadorClients = [];
 
